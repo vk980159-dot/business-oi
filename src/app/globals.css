@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-padding-top: 4rem; }
+body { @apply bg-board text-ink font-sans antialiased; line-height: 1.55; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+:focus-visible { outline: 2px solid #0B6B8A; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+@layer components {
+  .panel { @apply bg-panel border border-line rounded-lg; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-ink text-white hover:bg-signal; }
+  .btn-gold { @apply btn bg-gold text-ink hover:brightness-95; }
+  .btn-quiet { @apply btn bg-transparent border border-line text-ink hover:bg-board; }
+  .btn-danger { @apply btn bg-transparent border border-danger/40 text-danger hover:bg-danger/5; }
+  .input { @apply w-full rounded-md border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-muted/70; }
+  .label { @apply block text-sm font-medium mb-1; }
+  .hint { @apply text-xs text-muted mt-1; }
+  .link { @apply text-signal underline underline-offset-2 hover:text-ink; }
+  .h-display { font-family: theme('fontFamily.display'); letter-spacing: -0.01em; }
+  th { @apply text-left font-medium text-muted text-xs py-2 px-3; }
+  td { @apply py-2 px-3 align-top text-sm; }
+}
